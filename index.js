@@ -3,13 +3,17 @@ const fs = require("fs");
 const inquirer = require("inquirer");
 const shapeLib = require("./lib/shapes.js");
 
+const LogoPrompt = require('inquirer-maxlength-input-prompt');
+inquirer.registerPrompt('maxlength-input', LogoPrompt);
 
+function init(){
 //prompts
-
+inquirer.prompt([
 {
-    type: "input",
+    type: "maxlength-input",
     message: "Enter 3 character logo name",
     name: "logo",
+    maxLength: 3,
 },
 
 { 
@@ -32,14 +36,21 @@ const shapeLib = require("./lib/shapes.js");
     name: "shapecolor",
 },
 
-
+]).then(({logo, textcolor, shape, shapecolor})=>{
+    const logoImage=generateLogo(logo, textcolor, shape, shapecolor);
+    console.log(logoImage);
+    fs.createFile("lib/logo.svg", logoImage, (err)=>
+    err ? console.log(err) : console.log("Generated logo.svg"));
+})
 //function to make file for logo 
 
-function createFile(title, data = ) {
-    return fs.
+//function createFile(logo.svg, data = ) {
+    //return fs.
+//}
+
 }
 
-
+init();
 
 module.exports = {createFile}
 
