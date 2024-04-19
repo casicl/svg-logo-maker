@@ -44,15 +44,16 @@ inquirer.prompt([
     let shape;
     switch (logoShape) {
         case "circle":
-            shape=new Circle();
+            shape=new Circle(logoText, textColor, shapeColor);
+        
             break;
 
         case "square":
-         shape=new Square();
+         shape=new Square(logoText, textColor, shapeColor);
             break;
 
         case "triangle":
-        shape=new Triangle();
+        shape=new Triangle(logoText, textColor, shapeColor);
         break;
 
 
@@ -65,24 +66,7 @@ err ? console.log(err) : console.log("Generated logo.svg"));
 })}
 
 
-//     let shapeString=new shape(shape, shapecolor)
-//     shapeString=shapeString.render()
-//     const logoImage=generateLogo(logotext, textcolor, shape, shapecolor);
-//     const logoSVG=(`<svg xmlns="http://www.w3.org/2000/svg" width="300" height="200">
-//     <circle cx="50" cy="50" r="40" fill="red" />
-//     <text x="25" y="55" fill="white">My Logo</text>
-//   </svg>`);
-//     console.log(logoImage);
-//     fs.writeFile("lib/logo.svg", logoImage, (err)=>
-//     err ? console.log(err) : console.log("Generated logo.svg"));
-//})
-//function to make file for logo 
 
-//function createFile(logo.svg, data = ) {
-    //return fs.
-//}
-
-//}
 
 init();
 
