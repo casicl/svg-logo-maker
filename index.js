@@ -39,7 +39,7 @@ inquirer.prompt([
     message: "color of shape",
     name: "shapeColor",
 },
-
+//switch cases for each shape
 ]).then(({logoText, textColor, shapeColor, logoShape,})=>{
     let shape;
     switch (logoShape) {
@@ -60,7 +60,7 @@ inquirer.prompt([
     }
    
     const generateLogo=shape.render()
-
+//write to the logo.svg file to create the logo
 fs.writeFile("./examples/logo.svg", generateLogo, (err)=>
 err ? console.log(err) : console.log("Generated logo.svg"));
 })}
